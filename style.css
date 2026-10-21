@@ -1,0 +1,2255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #F7F4ED;
+    color: #26344F;
+    font-family: "Libre Baskerville", Georgia, serif;
+}
+
+header {
+    width: 100%;
+    padding: 30px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #F7F4ED;
+}
+
+.logo {
+    text-align: center;
+    color: #CFA153;
+}
+
+.logo p {
+    margin: 3px 0;
+    letter-spacing: 4px;
+}
+
+.logo p:first-child {
+    font-size: 11px;
+}
+
+.logo p:nth-child(2) {
+    font-size: 15px;
+}
+
+.logo p:last-child {
+    font-size: 10px;
+}
+
+.menu-button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+    width: 32px;
+    height: 3px;
+    background-color: #26344F;
+    margin: 0;
+}
+
+.menu-button.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 7%;
+    width: 300px;
+    padding: 30px;
+    background-color: #F7F4ED;
+    border: 1px solid #D8C2A0;
+    box-shadow: 0 15px 40px rgba(38, 52, 79, 0.12);
+    border-radius: 2px;
+}
+
+.menu.active {
+    display: block;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 18px;
+}
+
+.menu li:last-child {
+    margin-bottom: 0;
+}
+
+.menu a {
+    color: #CFA153;
+    text-decoration: none;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.menu a:hover {
+    color: #4B5668;
+}
+
+
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 150px 8% 60px;
+    position: relative;
+    overflow: hidden;
+    background-color: #F7F4ED;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 0;
+    height: calc(100svh - 150px);
+    max-height: 750px;
+    overflow: hidden;
+    border-radius: 180px 180px 0 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 400;
+    line-height: 0.98;
+    max-width: 620px;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    font-family: "Anastasia", cursive;
+    font-size: 1.15em;
+    font-weight: normal;
+    font-style: normal;
+    color: #CFA153;
+    -webkit-text-stroke: 0;
+}
+
+.hero p {
+    max-width: 570px;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #4B5668;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 230px;
+    padding: 16px 30px;
+    background-color: #CFA153;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.como-funciona {
+    padding: 120px 8%;
+    background-color: #F7F4ED;
+    min-height: 100vh;
+}
+
+.keywords {
+    margin-bottom: 70px;
+    text-align: center;
+    color: #CFA153;
+    font-size: 18px;
+    letter-spacing: 7px;
+}
+
+.como-funciona h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 70px;
+    color: #26344F;
+}
+
+.etapas {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.etapas > div {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 55px;
+}
+
+.etapas dt {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #26344F;
+}
+
+.etapas dd {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4B5668;
+    max-width: 700px;
+}
+
+.etapas > div::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #CFA153;
+}
+
+
+.conheca {
+    background-color: #F7F4ED;
+    padding: 110px 8% 120px;
+}
+
+.conheca-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.conheca-header {
+    margin-bottom: 55px;
+}
+
+.conheca-label {
+    color: #CFA153;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.conheca-header h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #26344F;
+    margin-bottom: 25px;
+}
+
+.linha {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #CFA153;
+}
+
+.terapeuta-conteudo {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(35px, 5vw, 75px);
+    align-items: start;
+}
+
+.terapeuta-imagem {
+    width: 100%;
+    position: sticky;
+    top: 120px;
+}
+
+.terapeuta-imagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 780px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 180px 180px 8px 8px;
+}
+
+.terapeuta-texto {
+    min-width: 0;
+    color: #4B5668;
+}
+
+.terapeuta-identificacao {
+    margin-bottom: 30px;
+}
+
+.nome-terapeuta {
+    color: #26344F;
+    font-size: 20px;
+    letter-spacing: 4px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.profissao {
+    color: #CFA153;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.linha-pequena {
+    display: block;
+    width: 45px;
+    height: 1px;
+    background-color: #CFA153;
+}
+
+.terapeuta-apresentacao p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #4B5668;
+    margin-bottom: 20px;
+}
+
+.metodo-destaque {
+    background-color: #EEE7DA;
+    border-left: 3px solid #CFA153;
+    padding: 28px 30px 12px;
+    margin: 32px 0;
+}
+
+.metodo-label {
+    color: #CFA153;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+.metodo-destaque p:not(.metodo-label) {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #26344F;
+    margin-bottom: 16px;
+}
+
+.metodo-destaque em {
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* Ajustes para celular */
+@media (max-width: 768px) {
+    .conheca {
+        padding: 80px 7% 90px;
+    }
+
+    .conheca-header {
+        margin-bottom: 35px;
+    }
+
+    .conheca-header h1 {
+        font-size: clamp(38px, 9vw, 52px);
+    }
+
+    .terapeuta-conteudo {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .terapeuta-imagem {
+        position: static;
+        max-width: 460px;
+        margin: 0 auto;
+    }
+
+    .terapeuta-imagem img {
+        max-height: 600px;
+        border-radius: 140px 140px 8px 8px;
+    }
+
+    .nome-terapeuta {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+    .terapeuta-apresentacao p,
+    .metodo-destaque p:not(.metodo-label) {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .metodo-destaque {
+        padding: 24px 22px 10px;
+        margin: 26px 0;
+    }
+}
+
+.planos {
+    background-color: #F7F4ED;
+    padding: 120px 8% 140px;
+    min-height: 100vh;
+}
+
+.planos-header {
+    max-width: 1100px;
+    margin: 0 auto 55px;
+}
+
+.planos-header h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 400;
+    line-height: 0.98;
+    color: #26344F;
+    margin-bottom: 25px;
+}
+
+.planos-introducao {
+    max-width: 700px;
+    margin: 0 auto 70px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4B5668;
+    text-align: center;
+}
+
+.lista-planos {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.lista-planos > div {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 55px;
+}
+
+.lista-planos > div::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #CFA153;
+}
+
+.lista-planos dt {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #26344F;
+}
+
+.lista-planos dd {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4B5668;
+}
+
+.contato {
+    background-color: #F7F4ED;
+    padding: 120px 8% 140px;
+}
+
+.contato-conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contato-label {
+    color: #CFA153;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.contato h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 400;
+    line-height: 0.98;
+    color: #26344F;
+    margin-bottom: 25px;
+}
+
+.linha-contato {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #CFA153;
+    margin-bottom: 30px;
+}
+
+.contato-texto {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4B5668;
+    margin-bottom: 40px;
+}
+
+.contato-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+}
+
+.botao-whatsapp,
+.botao-instagram,
+.botao-formulario {
+    min-height: 65px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.botao-whatsapp {
+    background-color: #CFA153;
+    color: #FFFFFF;
+    border: 1px solid #CFA153;
+}
+
+.botao-instagram,
+.botao-formulario {
+    background-color: transparent;
+    border: 1px solid #CFA153;
+    color: #B8893E;
+}
+
+.botao-whatsapp:hover,
+.botao-instagram:hover,
+.botao-formulario:hover {
+    background-color: #B8893E;
+    border-color: #B8893E;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(184, 137, 62, 0.18);
+}
+
+.botao-whatsapp:active,
+.botao-instagram:active,
+.botao-formulario:active {
+    background-color: #D8B575;
+    border-color: #D8B575;
+    color: #FFFFFF;
+    transform: translateY(1px) scale(0.985);
+    box-shadow: none;
+}
+
+.botao-whatsapp .icone,
+.botao-instagram .icone,
+.botao-formulario .icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    flex-shrink: 0;
+}
+
+.botao-whatsapp .icone i,
+.botao-instagram .icone i,
+.botao-formulario .icone i {
+    font-size: 22px;
+    color: inherit;
+}
+
+.botao-whatsapp > span:nth-child(2),
+.botao-instagram > span:nth-child(2),
+.botao-formulario > span:nth-child(2) {
+    flex: 1;
+    font-size: 16px;
+}
+
+.seta {
+    font-size: 22px;
+}
+
+.faq {
+    background-color: #F7F4ED;
+    padding: 120px 8% 140px;
+}
+
+.faq-header {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+}
+
+.faq-label {
+    color: #CFA153;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.faq-header h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 400;
+    line-height: 0.98;
+    color: #26344F;
+    margin-bottom: 25px;
+}
+
+.linha-faq {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #CFA153;
+}
+
+.faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #D8C2A0;
+}
+
+.faq-pergunta {
+    width: 100%;
+    min-height: 75px;
+    padding: 20px 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #26344F;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 22px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.faq-seta {
+    color: #CFA153;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    transition: transform 0.3s ease;
+}
+
+.faq-resposta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-resposta p {
+    color: #4B5668;
+    font-size: 17px;
+    line-height: 1.7;
+    padding-bottom: 0;
+}
+
+.faq-item.active .faq-resposta {
+    max-height: 300px;
+}
+
+.faq-item.active .faq-resposta p {
+    padding-bottom: 25px;
+}
+
+.faq-item.active .faq-seta {
+    transform: rotate(180deg);
+}
+
+.depoimentos {
+    background-color: #F7F4ED;
+    padding: 120px 8% 140px;
+}
+
+.depoimentos-header {
+    max-width: 1100px;
+    margin: 0 auto 70px;
+}
+
+.depoimentos-label {
+    color: #CFA153;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.depoimentos-header h1 {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 400;
+    line-height: 0.98;
+    color: #26344F;
+    margin-bottom: 25px;
+}
+
+.depoimentos-intro {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4B5668;
+    margin-bottom: 25px;
+}
+
+.linha-depoimentos {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #CFA153;
+}
+
+.depoimentos-videos {
+    max-width: 700px;
+    margin: 0 auto 100px;
+}
+
+.videos-slider {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.videos-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.45s ease;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+}
+
+.videos-track:active {
+    cursor: grabbing;
+}
+
+.video-slide {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-slide video {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    background-color: #D8C2A0;
+}
+
+.videos-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.videos-dots .dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #D8C2A0;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.videos-dots .dot.active {
+    width: 11px;
+    height: 11px;
+    background-color: #CFA153;
+}
+
+.depoimentos-frases {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.frases-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.frases-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.45s ease;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+}
+
+.frases-track:active {
+    cursor: grabbing;
+}
+
+.frase-slide {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.frase-card {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    min-height: 280px;
+    padding: 60px 70px;
+    background-color: #D8C2A0;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.aspas {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 70px;
+    line-height: 1;
+    color: #CFA153;
+}
+
+.frase-card p {
+    max-width: 570px;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 25px;
+    line-height: 1.5;
+    color: #26344F;
+    margin-bottom: 30px;
+}
+
+.frase-nome {
+    color: #CFA153;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.frases-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.frases-dots .frase-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #D8C2A0;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.frases-dots .frase-dot.active {
+    width: 11px;
+    height: 11px;
+    background-color: #CFA153;
+}
+
+.footer {
+    background-color: #CFA153;
+    padding: 25px 7%;
+    text-align: center;
+}
+
+.rodape-direitos {
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.whatsapp-flutuante {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #CFA153;
+    color: #FFFFFF;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-size: 28px;
+
+    box-shadow: 0 8px 25px rgba(38, 52, 79, 0.22);
+
+    z-index: 999;
+
+    transition: 0.3s ease;
+}
+
+.whatsapp-flutuante:hover {
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow: 0 12px 30px rgba(38, 52, 79, 0.28);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F7F4ED;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CFA153;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #26344F;
+}
+
+
+#voltar-topo {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border: 1px solid #CFA153;
+    border-radius: 50%;
+    background-color: #26344F;
+    color: #F7F4ED;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+}
+
+#voltar-topo.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#voltar-topo:hover {
+    background-color: #CFA153;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    #voltar-topo {
+        width: 45px;
+        height: 45px;
+        right: 18px;
+        bottom: 85px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .hero {
+        background-position: 65% center;
+    }
+
+    .hero-content {
+        max-width: 520px;
+    }
+
+    .hero h1 {
+        font-size: clamp(46px, 7vw, 68px);
+    }
+
+    .hero p {
+        max-width: 500px;
+    }
+
+    .terapeuta-conteudo {
+        grid-template-columns: 42% 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 24px 6%;
+    }
+
+    .logo p:first-child {
+        font-size: 9px;
+    }
+
+    .logo p:nth-child(2) {
+        font-size: 12px;
+    }
+
+    .logo p:last-child {
+        font-size: 8px;
+    }
+
+    .menu-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-button span {
+        width: 28px;
+    }
+
+    .menu {
+        top: 78px;
+        right: 6%;
+        width: calc(100% - 12%);
+        padding: 25px;
+    }
+
+    .menu a {
+        font-size: 17px;
+    }
+
+    .menu li {
+        margin-bottom: 16px;
+    }
+
+    .hero {
+        min-height: 100svh;
+        padding: 145px 7% 0;
+        display: block;
+        background-size: auto 55%;
+        background-position: 72% bottom;
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: 0.98;
+        max-width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .hero p {
+        max-width: 100%;
+        font-size: 17px;
+        line-height: 1.55;
+        margin-bottom: 24px;
+    }
+
+    .cta-button {
+        width: 100%;
+        min-width: 0;
+        padding: 15px 25px;
+    }
+
+    .como-funciona {
+        padding: 90px 7% 100px;
+    }
+
+    .keywords {
+        font-size: 13px;
+        letter-spacing: 4px;
+        line-height: 1.8;
+        margin-bottom: 45px;
+    }
+
+    .como-funciona h1 {
+        font-size: clamp(46px, 13vw, 60px);
+        margin-bottom: 50px;
+    }
+
+    .etapas > div {
+        padding-left: 40px;
+        margin-bottom: 45px;
+    }
+
+    .etapas dt {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .etapas dd {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .etapas > div::before {
+        left: 5px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .conheca {
+        padding: 90px 7% 100px;
+    }
+
+    .conheca-header {
+        margin-bottom: 45px;
+    }
+
+    .conheca-header h1 {
+        font-size: clamp(46px, 13vw, 60px);
+        margin-bottom: 20px;
+    }
+
+    .linha {
+        width: 45px;
+    }
+
+    .terapeuta-conteudo {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .terapeuta-imagem {
+        width: 100%;
+    }
+
+    .terapeuta-imagem img {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .terapeuta-texto {
+        padding-bottom: 0;
+    }
+
+    .nome-terapeuta {
+        font-size: 16px;
+        letter-spacing: 4px;
+    }
+
+    .profissao {
+        font-size: 13px;
+        letter-spacing: 3px;
+    }
+
+    .linha-pequena {
+        margin-bottom: 25px;
+    }
+
+    .terapeuta-texto > p:not(.nome-terapeuta):not(.profissao) {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .planos {
+        padding: 90px 7% 100px;
+    }
+
+    .planos-header {
+        margin-bottom: 45px;
+    }
+
+    .planos-header h1 {
+        font-size: clamp(46px, 13vw, 60px);
+        margin-bottom: 20px;
+    }
+
+    .planos-introducao {
+        font-size: 16px;
+        line-height: 1.65;
+        text-align: left;
+        margin-bottom: 50px;
+    }
+
+    .lista-planos > div {
+        padding-left: 40px;
+        margin-bottom: 45px;
+    }
+
+    .lista-planos > div::before {
+        left: 5px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .lista-planos dt {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .lista-planos dd {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .contato {
+        padding: 90px 7% 100px;
+    }
+
+    .contato-label {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .contato h1 {
+        font-size: clamp(46px, 13vw, 60px);
+    }
+
+    .contato-texto {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .botao-whatsapp,
+    .botao-instagram {
+        min-height: 60px;
+        padding: 0 20px;
+    }
+
+    .faq {
+        padding: 90px 7% 100px;
+    }
+
+    .faq-header {
+        margin-bottom: 45px;
+    }
+
+    .faq-label {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .faq-header h1 {
+        font-size: clamp(46px, 13vw, 60px);
+    }
+
+    .faq-pergunta {
+        min-height: 65px;
+        font-size: 19px;
+    }
+
+    .faq-resposta p {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .depoimentos {
+        padding: 90px 7% 100px;
+    }
+
+    .depoimentos-header {
+        margin-bottom: 50px;
+    }
+
+    .depoimentos-label {
+        font-size: 12px;
+        letter-spacing: 4px;
+        margin-bottom: 18px;
+    }
+
+    .depoimentos-header h1 {
+        font-size: clamp(46px, 13vw, 60px);
+        line-height: 0.98;
+    }
+
+    .depoimentos-intro {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .depoimentos-videos {
+        margin-bottom: 75px;
+    }
+
+    .video-slide video {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .videos-dots {
+        margin-top: 20px;
+    }
+
+    .frases-dots {
+        margin-top: 20px;
+    }
+
+    .frase-card {
+        min-height: 300px;
+        padding: 55px 35px 45px;
+        border-radius: 12px;
+    }
+
+    .aspas {
+        top: 20px;
+        left: 25px;
+        font-size: 55px;
+    }
+
+    .frase-card p {
+        font-size: 21px;
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
+
+    .frase-nome {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .footer {
+        padding: 22px 6%;
+    }
+
+    .rodape-direitos {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .whatsapp-flutuante {
+        width: 54px;
+        height: 54px;
+
+        right: 18px;
+        bottom: 18px;
+
+        font-size: 25px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .hero {
+        padding-top: 135px;
+        background-size: auto 52%;
+        background-position: 70% bottom;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .keywords {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .etapas dt {
+        font-size: 23px;
+    }
+
+    .lista-planos dt {
+        font-size: 23px;
+    }
+
+    .depoimentos {
+        padding: 80px 6% 90px;
+    }
+
+    .depoimentos-header h1 {
+        font-size: 42px;
+    }
+
+    .depoimentos-intro {
+        font-size: 15px;
+    }
+
+    .frase-card {
+        min-height: 280px;
+        padding: 50px 25px 40px;
+    }
+
+    .frase-card p {
+        font-size: 19px;
+    }
+
+    .aspas {
+        left: 20px;
+        font-size: 48px;
+    }
+}
+
+
+
+/* ========================================
+   PALETA VINTAGE DE REALEZA
+   ======================================== */
+:root {
+    --azul-acinzentado: #8197AC;
+    --azul-marinho: #26344F;
+    --marfim: #F7F4ED;
+    --dourado: #CFA153;
+    --bege-antigo: #D8C2A0;
+    --texto-secundario: #4B5668;
+}
+
+/* Textos de destaque em azul-marinho para manter boa leitura */
+.logo,
+.menu a,
+.hero h1 span,
+.keywords,
+.nome-terapeuta,
+.profissao,
+.contato-label,
+.depoimentos-label,
+.frase-nome,
+.botao-instagram,
+.botao-instagram .icone i {
+    color: var(--azul-marinho);
+}
+
+/* Botões principais */
+.cta-button,
+.botao-whatsapp {
+    background-color: var(--azul-marinho);
+    color: var(--marfim);
+    border: 1px solid var(--azul-marinho);
+}
+
+.cta-button:hover,
+.botao-whatsapp:hover,
+.whatsapp-flutuante:hover {
+    background-color: #344665;
+}
+
+.botao-instagram {
+    border: 1px solid var(--dourado);
+}
+
+.botao-instagram:hover {
+    background-color: var(--bege-antigo);
+}
+
+/* Dourado reservado para detalhes decorativos */
+.linha,
+.linha-pequena,
+.linha-contato,
+.linha-faq,
+.linha-depoimentos,
+.etapas > div::before,
+.lista-planos > div::before,
+.videos-dots .dot.active,
+.frases-dots .frase-dot.active {
+    background-color: var(--dourado);
+}
+
+.aspas,
+.faq-seta {
+    color: var(--dourado);
+}
+
+/* Rodapé e botão flutuante */
+.footer,
+.whatsapp-flutuante {
+    background-color: var(--azul-marinho);
+}
+
+.whatsapp-flutuante {
+    color: var(--marfim);
+    border: 1px solid var(--dourado);
+    box-shadow: 0 8px 25px rgba(38, 52, 79, 0.22);
+}
+
+/* Fundo dos depoimentos e indicadores */
+.videos-slider,
+.video-slide video,
+.frase-card {
+    background-color: var(--bege-antigo);
+}
+
+.videos-dots .dot,
+.frases-dots .frase-dot {
+    background-color: var(--azul-acinzentado);
+}
+
+/* Menu, bordas e barra de rolagem */
+.menu {
+    border-color: var(--bege-antigo);
+    box-shadow: 0 15px 40px rgba(38, 52, 79, 0.12);
+}
+
+.menu-button span {
+    background-color: var(--azul-marinho);
+}
+
+.faq-item {
+    border-color: var(--bege-antigo);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--marfim);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--azul-acinzentado);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--azul-marinho);
+}
+
+html {
+    scrollbar-color: var(--azul-acinzentado) var(--marfim);
+}
+
+
+/* ========================================
+   TIPOGRAFIA ELEGANTE
+   Libre Baskerville como fonte principal
+   Pinyon Script apenas no destaque
+   ======================================== */
+
+body,
+.menu a,
+.hero h1,
+.hero p,
+.cta-button,
+.como-funciona h1,
+.etapas dt,
+.etapas dd,
+.conheca-header h1,
+.terapeuta-texto,
+.planos-header h1,
+.planos-introducao,
+.lista-planos dt,
+.lista-planos dd,
+.contato h1,
+.contato-texto,
+.botao-whatsapp,
+.botao-instagram,
+.faq-header h1,
+.faq-pergunta,
+.faq-resposta p,
+.depoimentos-header h1,
+.depoimentos-intro,
+.frase-card p,
+.rodape-direitos {
+    font-family: "Libre Baskerville", Georgia, serif;
+}
+
+.hero h1 span {
+    font-family: "Pinyon Script", cursive;
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+/* ========================================
+   AJUSTES DE ESPAÇAMENTO E RESPONSIVIDADE
+   Mantém todo o conteúdo e os estilos originais
+   ======================================== */
+
+/* Espaçamento vertical mais equilibrado entre as sessões */
+.como-funciona,
+.planos,
+.contato,
+.faq,
+.depoimentos {
+    padding-top: clamp(72px, 7vw, 100px);
+    padding-bottom: clamp(78px, 8vw, 112px);
+}
+
+.conheca {
+    padding-top: clamp(72px, 7vw, 100px);
+    padding-bottom: clamp(78px, 8vw, 112px);
+}
+
+.como-funciona {
+    min-height: auto;
+}
+
+.planos {
+    min-height: auto;
+}
+
+.keywords {
+    margin-bottom: clamp(34px, 4vw, 55px);
+}
+
+.como-funciona h1 {
+    margin-bottom: clamp(38px, 4vw, 55px);
+}
+
+.etapas > div,
+.lista-planos > div {
+    margin-bottom: clamp(30px, 3.5vw, 42px);
+}
+
+.planos-header {
+    margin-bottom: clamp(35px, 4vw, 48px);
+}
+
+.planos-introducao {
+    margin-bottom: clamp(40px, 4.5vw, 55px);
+}
+
+.faq-header {
+    margin-bottom: clamp(35px, 4vw, 48px);
+}
+
+.depoimentos-header {
+    margin-bottom: clamp(38px, 4.5vw, 55px);
+}
+
+.depoimentos-videos {
+    margin-bottom: clamp(55px, 6vw, 75px);
+}
+
+/* Botões de contato: visual consistente e interação por mouse/toque */
+.contato-botoes {
+    width: 100%;
+}
+
+.botao-whatsapp,
+.botao-instagram,
+.botao-formulario {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-width: 0;
+    min-height: 62px;
+    padding: 15px 22px;
+    border: 1px solid var(--dourado);
+    border-radius: 10px;
+    background-color: var(--dourado);
+    color: #FFFFFF;
+    box-shadow: 0 5px 14px rgba(184, 137, 62, 0.14);
+    transition: background-color 0.25s ease, color 0.25s ease,
+                border-color 0.25s ease, transform 0.25s ease,
+                box-shadow 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.botao-whatsapp .icone i,
+.botao-instagram .icone i,
+.botao-formulario .icone i {
+    color: currentColor;
+    transition: color 0.25s ease;
+}
+
+.botao-whatsapp:hover,
+.botao-instagram:hover,
+.botao-formulario:hover {
+    background-color: #B8893E;
+    border-color: #B8893E;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 20px rgba(184, 137, 62, 0.22);
+}
+
+.botao-whatsapp:active,
+.botao-instagram:active,
+.botao-formulario:active {
+    background-color: #D8B575;
+    border-color: #D8B575;
+    color: #FFFFFF;
+    transform: scale(0.98);
+    box-shadow: 0 3px 8px rgba(184, 137, 62, 0.16);
+}
+
+.botao-whatsapp:focus-visible,
+.botao-instagram:focus-visible,
+.botao-formulario:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 3px;
+}
+
+@media (hover: none) {
+    .botao-whatsapp:hover,
+    .botao-instagram:hover,
+    .botao-formulario:hover {
+        transform: none;
+        box-shadow: 0 5px 14px rgba(184, 137, 62, 0.14);
+    }
+
+    .botao-whatsapp:active,
+    .botao-instagram:active,
+    .botao-formulario:active {
+        background-color: #D8B575;
+        border-color: #D8B575;
+        color: #FFFFFF;
+        transform: scale(0.98);
+        box-shadow: 0 3px 8px rgba(184, 137, 62, 0.16);
+    }
+}
+
+/* Tablets e telas intermediárias */
+@media (max-width: 1024px) {
+    .hero {
+        gap: clamp(24px, 4vw, 40px);
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 5.5vw, 62px);
+    }
+
+    .hero p {
+        font-size: clamp(16px, 1.8vw, 18px);
+    }
+
+    .terapeuta-conteudo {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(28px, 4vw, 45px);
+    }
+
+    .frase-card {
+        padding: clamp(42px, 5vw, 58px);
+    }
+}
+
+/* Celulares: manter todas as imagens e informações visíveis */
+@media (max-width: 768px) {
+    header {
+        padding: 16px 5%;
+    }
+
+    .menu {
+        top: calc(100% - 1px);
+        right: 5%;
+        width: 90%;
+        max-width: 420px;
+        max-height: calc(100svh - 100px);
+        overflow-y: auto;
+        padding: 22px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 112px 6% 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+        overflow: visible;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 8.5vw, 54px);
+        line-height: 1.05;
+        overflow-wrap: break-word;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+        font-size: 1.08em;
+    }
+
+    .hero p {
+        font-size: clamp(15px, 4vw, 17px);
+        line-height: 1.65;
+        margin-bottom: 22px;
+    }
+
+    .cta-button {
+        width: 100%;
+        min-width: 0;
+        min-height: 50px;
+        padding: 14px 20px;
+    }
+
+    .hero-image {
+        display: block;
+        width: 100%;
+        height: clamp(280px, 85vw, 470px);
+        max-height: none;
+        flex: none;
+        border-radius: 150px 150px 8px 8px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+
+    .como-funciona,
+    .conheca,
+    .planos,
+    .contato,
+    .faq,
+    .depoimentos {
+        padding: 68px 6% 76px;
+    }
+
+    .keywords {
+        font-size: clamp(10px, 2.8vw, 13px);
+        letter-spacing: clamp(2px, 0.8vw, 4px);
+        line-height: 1.8;
+        margin-bottom: 32px;
+        overflow-wrap: anywhere;
+    }
+
+    .como-funciona h1,
+    .conheca-header h1,
+    .planos-header h1,
+    .contato h1,
+    .faq-header h1,
+    .depoimentos-header h1 {
+        font-size: clamp(34px, 8.5vw, 52px);
+        line-height: 1.08;
+        overflow-wrap: break-word;
+        margin-bottom: 20px;
+    }
+
+    .como-funciona h1 {
+        margin-bottom: 38px;
+    }
+
+    .etapas > div,
+    .lista-planos > div {
+        padding-left: 32px;
+        margin-bottom: 32px;
+    }
+
+    .etapas > div::before,
+    .lista-planos > div::before {
+        left: 2px;
+        width: 11px;
+        height: 11px;
+    }
+
+    .etapas dt,
+    .lista-planos dt {
+        font-size: clamp(20px, 5.2vw, 25px);
+        line-height: 1.3;
+        overflow-wrap: break-word;
+    }
+
+    .etapas dd,
+    .lista-planos dd {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .conheca-header,
+    .planos-header,
+    .faq-header,
+    .depoimentos-header {
+        margin-bottom: 32px;
+    }
+
+    .terapeuta-conteudo {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        align-items: stretch;
+    }
+
+    .terapeuta-imagem {
+        position: static;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .terapeuta-imagem img {
+        display: block;
+        width: 100%;
+        max-height: 560px;
+        height: auto;
+        border-radius: 130px 130px 8px 8px;
+    }
+
+    .nome-terapeuta {
+        font-size: clamp(14px, 3.8vw, 17px);
+        letter-spacing: clamp(1px, 0.7vw, 3px);
+        overflow-wrap: anywhere;
+    }
+
+    .terapeuta-apresentacao p,
+    .metodo-destaque p:not(.metodo-label),
+    .terapeuta-texto > p:not(.nome-terapeuta):not(.profissao) {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .metodo-destaque {
+        padding: 22px 18px 8px;
+        margin: 24px 0;
+    }
+
+    .planos-introducao {
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: left;
+        margin-bottom: 36px;
+    }
+
+    .contato-label,
+    .faq-label,
+    .depoimentos-label {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .linha-contato {
+        margin-bottom: 22px;
+    }
+
+    .contato-texto {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 28px;
+    }
+
+    .contato-botoes {
+        gap: 12px;
+    }
+
+    .botao-whatsapp,
+    .botao-instagram,
+    .botao-formulario {
+        min-height: 58px;
+        padding: 13px 15px;
+        gap: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .botao-whatsapp > span:nth-child(2),
+    .botao-instagram > span:nth-child(2),
+    .botao-formulario > span:nth-child(2) {
+        min-width: 0;
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .faq-pergunta {
+        min-height: 62px;
+        padding: 16px 0;
+        gap: 12px;
+        font-size: clamp(16px, 4.2vw, 19px);
+        line-height: 1.45;
+    }
+
+    .faq-resposta p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .faq-item.active .faq-resposta {
+        max-height: 1000px;
+    }
+
+    .depoimentos-intro {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .depoimentos-videos {
+        margin-bottom: 48px;
+    }
+
+    .video-slide video {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .frase-card {
+        min-height: 250px;
+        padding: 48px 22px 30px;
+        border-radius: 10px;
+    }
+
+    .aspas {
+        top: 16px;
+        left: 18px;
+        font-size: 44px;
+    }
+
+    .frase-card p {
+        font-size: clamp(17px, 4.5vw, 21px);
+        line-height: 1.55;
+        margin-bottom: 20px;
+        overflow-wrap: break-word;
+    }
+
+    .frase-nome {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        line-height: 1.6;
+    }
+
+    .footer {
+        padding: 20px 6%;
+    }
+
+    .rodape-direitos {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .whatsapp-flutuante {
+        width: 48px;
+        height: 48px;
+        right: 14px;
+        bottom: 14px;
+        font-size: 22px;
+    }
+
+    #voltar-topo {
+        width: 42px;
+        height: 42px;
+        right: 17px;
+        bottom: 74px;
+        font-size: 16px;
+    }
+}
+
+/* Celulares estreitos */
+@media (max-width: 380px) {
+    .hero {
+        padding: 104px 5% 34px;
+        gap: 24px;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 9vw, 38px);
+    }
+
+    .hero-image {
+        height: 280px;
+        border-radius: 115px 115px 8px 8px;
+    }
+
+    .como-funciona,
+    .conheca,
+    .planos,
+    .contato,
+    .faq,
+    .depoimentos {
+        padding: 58px 5% 64px;
+    }
+
+    .como-funciona h1,
+    .conheca-header h1,
+    .planos-header h1,
+    .contato h1,
+    .faq-header h1,
+    .depoimentos-header h1 {
+        font-size: clamp(31px, 8.5vw, 36px);
+    }
+
+    .keywords {
+        letter-spacing: 1.5px;
+    }
+
+    .etapas > div,
+    .lista-planos > div {
+        padding-left: 27px;
+    }
+
+    .frase-card {
+        padding: 46px 17px 26px;
+    }
+
+    .botao-whatsapp,
+    .botao-instagram,
+    .botao-formulario {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* Reduz animações para quem prefere movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .botao-whatsapp,
+    .botao-instagram,
+    .botao-formulario {
+        transition: none;
+    }
+}
+
+
+
+
+/* PADRÃO GLOBAL DOS BOTÕES — sobrescreve regras antigas e responsivas */
+.botao-whatsapp,
+.botao-instagram,
+.botao-formulario,
+.whatsapp-flutuante,
+#voltar-topo,
+.cta-button {
+    background: #26344F !important;
+    color: #FFFFFF !important;
+    border: 1px solid #CFA153 !important;
+    transition: background-color .25s ease, color .25s ease,
+                border-color .25s ease, transform .25s ease,
+                box-shadow .25s ease !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.botao-whatsapp:hover,
+.botao-instagram:hover,
+.botao-formulario:hover,
+.whatsapp-flutuante:hover,
+#voltar-topo:hover,
+.cta-button:hover {
+    background: #CFA153 !important;
+    color: #FFFFFF !important;
+    border-color: #CFA153 !important;
+    transform: scale(1.07) !important;
+    box-shadow: 0 8px 22px rgba(207, 161, 83, .30) !important;
+}
+
+.botao-whatsapp:active,
+.botao-instagram:active,
+.botao-formulario:active,
+.whatsapp-flutuante:active,
+#voltar-topo:active,
+.cta-button:active {
+    background: #CFA153 !important;
+    color: #FFFFFF !important;
+    border-color: #CFA153 !important;
+    transform: scale(.98) !important;
+}
+
+.botao-whatsapp:focus-visible,
+.botao-instagram:focus-visible,
+.botao-formulario:focus-visible,
+.whatsapp-flutuante:focus-visible,
+#voltar-topo:focus-visible,
+.cta-button:focus-visible {
+    outline: 3px solid #CFA153 !important;
+    outline-offset: 3px;
+}
+
+/* O botão de topo mantém a posição quando está visível. */
+#voltar-topo.visivel:hover {
+    transform: translateY(0) scale(1.07) !important;
+}
+
+/* Em dispositivos touch, não deixa o hover ficar preso após o toque. */
+@media (hover: none) {
+    .botao-whatsapp:hover,
+    .botao-instagram:hover,
+    .botao-formulario:hover,
+    .whatsapp-flutuante:hover,
+    #voltar-topo:hover,
+    .cta-button:hover {
+        transform: none !important;
+        box-shadow: 0 5px 14px rgba(38, 52, 79, .22) !important;
+    }
+
+    .botao-whatsapp:active,
+    .botao-instagram:active,
+    .botao-formulario:active,
+    .whatsapp-flutuante:active,
+    #voltar-topo:active,
+    .cta-button:active {
+        background: #CFA153 !important;
+        color: #FFFFFF !important;
+        border-color: #CFA153 !important;
+        transform: scale(.98) !important;
+        box-shadow: 0 4px 12px rgba(207, 161, 83, .28) !important;
+    }
+}
