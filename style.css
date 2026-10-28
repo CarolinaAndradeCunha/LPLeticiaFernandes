@@ -765,74 +765,6 @@ header {
     background-color: #CFA153;
 }
 
-.depoimentos-videos {
-    max-width: 700px;
-    margin: 0 auto 100px;
-}
-
-.videos-slider {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 14px;
-}
-
-.videos-track {
-    display: flex;
-    width: 100%;
-    transition: transform 0.45s ease;
-    cursor: grab;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: pan-y;
-}
-
-.videos-track:active {
-    cursor: grabbing;
-}
-
-.video-slide {
-    min-width: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.video-slide video {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 14px;
-    background-color: #D8C2A0;
-}
-
-.videos-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.videos-dots .dot {
-    width: 9px;
-    height: 9px;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background-color: #D8C2A0;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.videos-dots .dot.active {
-    width: 11px;
-    height: 11px;
-    background-color: #CFA153;
-}
-
 .depoimentos-frases {
     max-width: 900px;
     margin: 0 auto;
@@ -1347,19 +1279,6 @@ header {
         line-height: 1.6;
     }
 
-    .depoimentos-videos {
-        margin-bottom: 75px;
-    }
-
-    .video-slide video {
-        max-width: 100%;
-        border-radius: 12px;
-    }
-
-    .videos-dots {
-        margin-top: 20px;
-    }
-
     .frases-dots {
         margin-top: 20px;
     }
@@ -1525,7 +1444,6 @@ header {
 .linha-depoimentos,
 .etapas > div::before,
 .lista-planos > div::before,
-.videos-dots .dot.active,
 .frases-dots .frase-dot.active {
     background-color: var(--dourado);
 }
@@ -1547,14 +1465,9 @@ header {
     box-shadow: 0 8px 25px rgba(38, 52, 79, 0.22);
 }
 
-/* Fundo dos depoimentos e indicadores */
-.videos-slider,
-.video-slide video,
 .frase-card {
     background-color: var(--bege-antigo);
 }
-
-.videos-dots .dot,
 .frases-dots .frase-dot {
     background-color: var(--azul-acinzentado);
 }
@@ -1686,10 +1599,6 @@ body,
 
 .depoimentos-header {
     margin-bottom: clamp(38px, 4.5vw, 55px);
-}
-
-.depoimentos-videos {
-    margin-bottom: clamp(55px, 6vw, 75px);
 }
 
 /* Botões de contato: visual consistente e interação por mouse/toque */
@@ -2042,18 +1951,6 @@ body,
         line-height: 1.7;
     }
 
-    .depoimentos-videos {
-        margin-bottom: 48px;
-    }
-
-    .video-slide video {
-        width: 100%;
-        max-width: 100%;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
     .frase-card {
         min-height: 250px;
         padding: 48px 22px 30px;
@@ -2251,5 +2148,136 @@ body,
         border-color: #CFA153 !important;
         transform: scale(.98) !important;
         box-shadow: 0 4px 12px rgba(207, 161, 83, .28) !important;
+    }
+}
+
+
+/* ========================================
+   DEPOIMENTOS — CARTÃO MAIS COMPACTO
+   Ajuste final para reduzir o fundo bege
+   ======================================== */
+
+.depoimentos {
+    padding: 72px 6% 80px;
+}
+
+.depoimentos-header {
+    margin-bottom: 36px;
+}
+
+.depoimentos-frases {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.frases-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.frases-track {
+    align-items: stretch;
+}
+
+.frase-slide {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.frase-card {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    min-height: 0;
+    height: auto;
+    margin: 0 auto;
+    padding: 38px 52px 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.frase-card p {
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto 18px;
+    font-size: clamp(16px, 1.45vw, 20px);
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+.aspas {
+    top: 14px;
+    left: 24px;
+    font-size: 46px;
+}
+
+.frase-nome {
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+.frases-dots {
+    margin-top: 20px;
+}
+
+/* Ajustes para celular */
+@media (max-width: 768px) {
+    .depoimentos {
+        padding: 60px 6% 68px;
+    }
+
+    .depoimentos-header {
+        margin-bottom: 30px;
+    }
+
+    .frase-card {
+        min-height: 0;
+        padding: 40px 22px 26px;
+        border-radius: 10px;
+    }
+
+    .frase-card p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .aspas {
+        top: 11px;
+        left: 15px;
+        font-size: 36px;
+    }
+
+    .frase-nome {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .frases-dots {
+        margin-top: 17px;
+    }
+}
+
+/* Celulares estreitos */
+@media (max-width: 380px) {
+    .depoimentos {
+        padding: 54px 5% 62px;
+    }
+
+    .frase-card {
+        padding: 38px 16px 23px;
+    }
+
+    .frase-card p {
+        font-size: 15px;
+        line-height: 1.55;
     }
 }
