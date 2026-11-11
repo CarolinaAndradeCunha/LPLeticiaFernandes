@@ -1,33 +1,24 @@
+
+// MENU MOBILE
 const menuButton = document.getElementById('menu-button');
 const menu = document.getElementById('menu');
 
 if (menuButton && menu) {
-    menuButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-
-        menu.classList.toggle('active');
+    menuButton.addEventListener('click', () => {
         menuButton.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (event) => {
-        if (
-            menu.classList.contains('active') &&
-            !menu.contains(event.target) &&
-            !menuButton.contains(event.target)
-        ) {
-            menu.classList.remove('active');
-            menuButton.classList.remove('active');
-        }
+        menu.classList.toggle('active');
     });
 
     menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            menu.classList.remove('active');
             menuButton.classList.remove('active');
+            menu.classList.remove('active');
         });
     });
 }
 
+
+// CARROSSEL DE DEPOIMENTOS
 const frasesTrack = document.querySelector('.frases-track');
 const fraseSlides = document.querySelectorAll('.frase-slide');
 const fraseDots = document.querySelectorAll('.frases-dots .frase-dot');
@@ -47,69 +38,79 @@ if (frasesTrack && fraseSlides.length && fraseDots.length) {
 
         fraseAtual = index;
 
-        frasesTrack.style.transform =
-            `translateX(-${fraseAtual * 100}%)`;
+        frasesTrack.style.transform = `translateX(-${fraseAtual * 100}%)`;
 
         fraseDots.forEach((dot, i) => {
             dot.classList.toggle('active', i === fraseAtual);
         });
     }
 
+    // CLICA NOS PONTOS
     fraseDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             mostrarFrase(index);
         });
     });
 
-    let inicioToqueFrase = 0;
+    // ARRASTAR COM MOUSE E DESLIZAR COM O DEDO
+    let inicioX = 0;
+    let inicioY = 0;
+    let arrastando = false;
+    let ponteiroId = null;
 
-    frasesTrack.addEventListener('touchstart', (event) => {
-        inicioToqueFrase = event.touches[0].clientX;
-    }, { passive: true });
+    frasesTrack.addEventListener('pointerdown', (event) => {
 
-    frasesTrack.addEventListener('touchend', (event) => {
-        const fimToqueFrase = event.changedTouches[0].clientX;
-        const distancia = fimToqueFrase - inicioToqueFrase;
+        if (event.pointerType === 'mouse' && event.button !== 0) {
+            return;
+        }
 
-        if (Math.abs(distancia) > 50) {
-            if (distancia < 0) {
+        inicioX = event.clientX;
+        inicioY = event.clientY;
+
+        arrastando = true;
+        ponteiroId = event.pointerId;
+
+        frasesTrack.setPointerCapture(event.pointerId);
+    });
+
+    frasesTrack.addEventListener('pointerup', (event) => {
+
+        if (!arrastando || event.pointerId !== ponteiroId) {
+            return;
+        }
+
+        const distanciaX = event.clientX - inicioX;
+        const distanciaY = event.clientY - inicioY;
+
+        // Só troca o depoimento se o movimento for principalmente horizontal
+        if (Math.abs(distanciaX) > 40 && Math.abs(distanciaX) > Math.abs(distanciaY)) {
+
+            if (distanciaX < 0) {
                 mostrarFrase(fraseAtual + 1);
             } else {
                 mostrarFrase(fraseAtual - 1);
             }
         }
+
+        arrastando = false;
+        ponteiroId = null;
     });
 
-    let inicioMouseFrase = 0;
-    let arrastandoFrase = false;
+    // CANCELA O ARRASTE
+    function cancelarArraste() {
+        arrastando = false;
+        ponteiroId = null;
+    }
 
-    frasesTrack.addEventListener('mousedown', (event) => {
-        inicioMouseFrase = event.clientX;
-        arrastandoFrase = true;
-    });
+    frasesTrack.addEventListener('pointercancel', cancelarArraste);
+    frasesTrack.addEventListener('lostpointercapture', cancelarArraste);
 
-    frasesTrack.addEventListener('mouseup', (event) => {
-        if (!arrastandoFrase) return;
-
-        const fimMouseFrase = event.clientX;
-        const distancia = fimMouseFrase - inicioMouseFrase;
-
-        if (Math.abs(distancia) > 50) {
-            if (distancia < 0) {
-                mostrarFrase(fraseAtual + 1);
-            } else {
-                mostrarFrase(fraseAtual - 1);
-            }
-        }
-
-        arrastandoFrase = false;
-    });
-
-    frasesTrack.addEventListener('mouseleave', () => {
-        arrastandoFrase = false;
-    });
+    // INICIA NO PRIMEIRO DEPOIMENTO
+    mostrarFrase(0);
 }
 
+
+// FAQ
 const perguntasFaq = document.querySelectorAll('.faq-pergunta');
 
 perguntasFaq.forEach(pergunta => {
@@ -119,13 +120,11 @@ perguntasFaq.forEach(pergunta => {
     });
 });
 
+
+// BOTÃO VOLTAR AO TOPO
 const botaoTopo = document.getElementById('voltar-topo');
 
 if (botaoTopo) {
-    window.addEventListener('scroll', () => {
-        botaoTopo.classList.toggle('visivel', window.scrollY > 400);
-    });
-
     botaoTopo.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -134,37 +133,42 @@ if (botaoTopo) {
     });
 }
 
-const anoAtual = document.getElementById('ano-atual');
+
+// ANO AUTOMÁTICO NO RODAPÉ
+const anoAtual = document.getElementById('ano');
 
 if (anoAtual) {
     anoAtual.textContent = new Date().getFullYear();
 }
 
-// Impede o navegador de restaurar a posição anterior.
+
+// RESTAURAÇÃO DO SCROLL
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
-// Remove uma possível âncora da URL ao abrir a página.
+
+// REMOVE HASH DA URL
 if (window.location.hash) {
-    history.replaceState(
-        null,
-        '',
-        window.location.pathname + window.location.search
-    );
+    history.replaceState(null, '', window.location.pathname + window.location.search);
 }
 
-// Leva a página ao topo após o carregamento.
+
+// INICIA NO TOPO
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
 
-window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
 
-    if (window.scrollY > 50) {
-        header.classList.add("rolagem");
-    } else {
-        header.classList.remove("rolagem");
-    }
-});
+// HEADER AO SUBIR
+const header = document.querySelector('header');
+
+if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('rolagem');
+        } else {
+            header.classList.remove('rolagem');
+        }
+    });
+}
