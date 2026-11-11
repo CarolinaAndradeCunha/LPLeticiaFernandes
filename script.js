@@ -1,24 +1,35 @@
+to entendendo...
 
-// MENU MOBILE
 const menuButton = document.getElementById('menu-button');
 const menu = document.getElementById('menu');
 
 if (menuButton && menu) {
-    menuButton.addEventListener('click', () => {
-        menuButton.classList.toggle('active');
+    menuButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+
         menu.classList.toggle('active');
+        menuButton.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (event) => {
+        if (
+            menu.classList.contains('active') &&
+            !menu.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+            menu.classList.remove('active');
+            menuButton.classList.remove('active');
+        }
     });
 
     menu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            menuButton.classList.remove('active');
             menu.classList.remove('active');
+            menuButton.classList.remove('active');
         });
     });
 }
 
-
-// CARROSSEL DE DEPOIMENTOS
 const frasesTrack = document.querySelector('.frases-track');
 const fraseSlides = document.querySelectorAll('.frase-slide');
 const fraseDots = document.querySelectorAll('.frases-dots .frase-dot');
@@ -38,79 +49,69 @@ if (frasesTrack && fraseSlides.length && fraseDots.length) {
 
         fraseAtual = index;
 
-        frasesTrack.style.transform = `translateX(-${fraseAtual * 100}%)`;
+        frasesTrack.style.transform =
+            `translateX(-${fraseAtual * 100}%)`;
 
         fraseDots.forEach((dot, i) => {
             dot.classList.toggle('active', i === fraseAtual);
         });
     }
 
-    // CLICA NOS PONTOS
     fraseDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             mostrarFrase(index);
         });
     });
 
-    // ARRASTAR COM MOUSE E DESLIZAR COM O DEDO
-    let inicioX = 0;
-    let inicioY = 0;
-    let arrastando = false;
-    let ponteiroId = null;
+    let inicioToqueFrase = 0;
 
-    frasesTrack.addEventListener('pointerdown', (event) => {
+    frasesTrack.addEventListener('touchstart', (event) => {
+        inicioToqueFrase = event.touches[0].clientX;
+    }, { passive: true });
 
-        if (event.pointerType === 'mouse' && event.button !== 0) {
-            return;
+    frasesTrack.addEventListener('touchend', (event) => {
+        const fimToqueFrase = event.changedTouches[0].clientX;
+        const distancia = fimToqueFrase - inicioToqueFrase;
+
+        if (Math.abs(distancia) > 50) {
+            if (distancia < 0) {
+                mostrarFrase(fraseAtual + 1);
+            } else {
+                mostrarFrase(fraseAtual - 1);
+            }
         }
-
-        inicioX = event.clientX;
-        inicioY = event.clientY;
-
-        arrastando = true;
-        ponteiroId = event.pointerId;
-
-        frasesTrack.setPointerCapture(event.pointerId);
     });
 
-    frasesTrack.addEventListener('pointerup', (event) => {
+    let inicioMouseFrase = 0;
+    let arrastandoFrase = false;
 
-        if (!arrastando || event.pointerId !== ponteiroId) {
-            return;
-        }
+    frasesTrack.addEventListener('mousedown', (event) => {
+        inicioMouseFrase = event.clientX;
+        arrastandoFrase = true;
+    });
 
-        const distanciaX = event.clientX - inicioX;
-        const distanciaY = event.clientY - inicioY;
+    frasesTrack.addEventListener('mouseup', (event) => {
+        if (!arrastandoFrase) return;
 
-        // Só troca o depoimento se o movimento for principalmente horizontal
-        if (Math.abs(distanciaX) > 40 && Math.abs(distanciaX) > Math.abs(distanciaY)) {
+        const fimMouseFrase = event.clientX;
+        const distancia = fimMouseFrase - inicioMouseFrase;
 
-            if (distanciaX < 0) {
+        if (Math.abs(distancia) > 50) {
+            if (distancia < 0) {
                 mostrarFrase(fraseAtual + 1);
             } else {
                 mostrarFrase(fraseAtual - 1);
             }
         }
 
-        arrastando = false;
-        ponteiroId = null;
+        arrastandoFrase = false;
     });
 
-    // CANCELA O ARRASTE
-    function cancelarArraste() {
-        arrastando = false;
-        ponteiroId = null;
-    }
-
-    frasesTrack.addEventListener('pointercancel', cancelarArraste);
-    frasesTrack.addEventListener('lostpointercapture', cancelarArraste);
-
-    // INICIA NO PRIMEIRO DEPOIMENTO
-    mostrarFrase(0);
+    frasesTrack.addEventListener('mouseleave', () => {
+        arrastandoFrase = false;
+    });
 }
 
-
-// FAQ
 const perguntasFaq = document.querySelectorAll('.faq-pergunta');
 
 perguntasFaq.forEach(pergunta => {
@@ -120,11 +121,13 @@ perguntasFaq.forEach(pergunta => {
     });
 });
 
-
-// BOTÃO VOLTAR AO TOPO
 const botaoTopo = document.getElementById('voltar-topo');
 
 if (botaoTopo) {
+    window.addEventListener('scroll', () => {
+        botaoTopo.classList.toggle('visivel', window.scrollY > 400);
+    });
+
     botaoTopo.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -133,42 +136,37 @@ if (botaoTopo) {
     });
 }
 
-
-// ANO AUTOMÁTICO NO RODAPÉ
-const anoAtual = document.getElementById('ano');
+const anoAtual = document.getElementById('ano-atual');
 
 if (anoAtual) {
     anoAtual.textContent = new Date().getFullYear();
 }
 
-
-// RESTAURAÇÃO DO SCROLL
+// Impede o navegador de restaurar a posição anterior.
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
-
-// REMOVE HASH DA URL
+// Remove uma possível âncora da URL ao abrir a página.
 if (window.location.hash) {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
+    history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search
+    );
 }
 
-
-// INICIA NO TOPO
+// Leva a página ao topo após o carregamento.
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
 
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
 
-// HEADER AO SUBIR
-const header = document.querySelector('header');
-
-if (header) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('rolagem');
-        } else {
-            header.classList.remove('rolagem');
-        }
-    });
-}
+    if (window.scrollY > 50) {
+        header.classList.add("rolagem");
+    } else {
+        header.classList.remove("rolagem");
+    }
+});
