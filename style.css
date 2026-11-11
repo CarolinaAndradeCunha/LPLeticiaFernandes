@@ -557,6 +557,7 @@ header {
     cursor: grab;
     user-select: none;
     -webkit-user-select: none;
+    touch-action: pan-y;
 }
 
 .frases-track:active {
