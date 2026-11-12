@@ -43,6 +43,11 @@ section {
     position: relative;
 }
 
+
+/* =========================================
+   2. CABEÇALHO
+   ========================================= */
+
 header {
     position: fixed;
     top: 0;
@@ -86,6 +91,11 @@ header {
     font-size: 9px;
 }
 
+
+/* =========================================
+   3. BOTÃO DO MENU
+   ========================================= */
+
 .menu-button {
     width: 45px;
     height: 45px;
@@ -111,6 +121,10 @@ header {
 
     transition: all 0.3s ease;
 }
+
+/* =========================================
+   4. MENU DE NAVEGAÇÃO
+   ========================================= */
 
 .menu {
     display: none;
@@ -155,6 +169,10 @@ header {
 .menu a:hover {
     color: var(--dourado);
 }
+
+/* =========================================
+   5. HERO — DESKTOP
+   ========================================= */
 
 .hero {
     position: relative;
@@ -222,6 +240,11 @@ header {
     object-position: center;
 }
 
+
+/* =========================================
+   6. BOTÃO PRINCIPAL
+   ========================================= */
+
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -255,10 +278,17 @@ header {
     transform: translateY(-3px);
 }
 
+
+/* =========================================
+   COMO FUNCIONA
+========================================= */
+
 .como-funciona {
     padding: 85px 8% 45px;
     background-color: var(--bege);
 }
+
+/* Keywords */
 
 .keywords {
     margin-bottom: 38px;
@@ -270,6 +300,9 @@ header {
     letter-spacing: 5px;
     text-align: center;
 }
+
+/* Título */
+
 .como-funciona h1,
 .planos-header h1,
 .conheca-header h1,
@@ -289,6 +322,8 @@ header {
     margin-bottom: 18px;
 }
 
+/* Linha decorativa */
+
 .como-funciona .linha {
     display: block;
     width: 55px;
@@ -296,6 +331,9 @@ header {
     margin: 0 0 38px;
     background-color: var(--dourado);
 }
+
+/* Lista de etapas */
+
 .etapas {
     max-width: 900px;
     margin: 0;
@@ -311,6 +349,8 @@ header {
     margin-bottom: 0;
 }
 
+/* Marcadores dourados */
+
 .etapas > div::before {
     content: "";
     position: absolute;
@@ -325,6 +365,8 @@ header {
     box-shadow: none;
 }
 
+/* Títulos das etapas */
+
 .etapas dt {
     margin-bottom: 10px;
 
@@ -335,6 +377,8 @@ header {
     line-height: 1.4;
 }
 
+/* Descrições */
+
 .etapas dd {
     max-width: 780px;
 
@@ -343,10 +387,17 @@ header {
     line-height: 1.9;
 }
 
+
+/* =========================================
+   PLANOS DE ACOMPANHAMENTO
+========================================= */
+
 .planos {
     padding: 45px 8% 85px;
     background-color: var(--bege);
 }
+
+/* Identificação da seção */
 
 .planos-label {
     display: flex;
@@ -367,6 +418,9 @@ header {
     display: none;
 }
 
+
+/* Título */
+
 .planos-header {
     max-width: 900px;
     margin: 0 0 25px;
@@ -378,6 +432,8 @@ header {
     text-align: left;
 }
 
+/* Linha decorativa alinhada à esquerda */
+
 .planos-header .linha {
     display: block;
     width: 55px;
@@ -386,6 +442,9 @@ header {
 
     background-color: var(--dourado);
 }
+
+
+/* Texto introdutório */
 
 .planos-introducao {
     max-width: 680px;
@@ -396,6 +455,9 @@ header {
     line-height: 1.9;
     text-align: left;
 }
+
+
+/* Lista de planos */
 
 .lista-planos {
     max-width: 900px;
@@ -412,6 +474,9 @@ header {
     margin-bottom: 0;
 }
 
+
+/* Marcadores dourados */
+
 .lista-planos > div::before {
     content: "";
     position: absolute;
@@ -426,6 +491,9 @@ header {
     box-shadow: none;
 }
 
+
+/* Títulos dos programas */
+
 .lista-planos dt {
     margin-bottom: 10px;
 
@@ -436,6 +504,9 @@ header {
     line-height: 1.5;
 }
 
+
+/* Descrições */
+
 .lista-planos dd,
 .lista-planos > div > p {
     max-width: 780px;
@@ -444,6 +515,11 @@ header {
     font-size: 16px;
     line-height: 1.9;
 }
+
+
+/* =========================================
+   SEIS PILARES
+========================================= */
 
 .lista-pilares {
     display: grid;
@@ -479,6 +555,11 @@ header {
     text-align: center;
 }
 
+
+/* =========================================
+   RESET HORMONAL
+========================================= */
+
 .duracao-programa {
     display: flex;
     align-items: center;
@@ -499,6 +580,11 @@ header {
     font-size: 14px;
     letter-spacing: 1px;
 }
+
+
+/* =========================================
+   9. DEPOIMENTOS
+========================================= */
 
 .depoimentos {
     padding: 85px 8%;
@@ -605,6 +691,8 @@ header {
     line-height: 1;
 }
 
+/* Texto dos depoimentos */
+
 .frase-card p {
     max-width: 590px;
     margin-bottom: 25px;
@@ -615,6 +703,8 @@ header {
     line-height: 1.9;
 }
 
+/* Nome das clientes */
+
 .frase-nome {
     color: var(--bege);
     font-family: var(--fonte-destaque);
@@ -623,6 +713,8 @@ header {
     letter-spacing: 0;
     text-transform: none;
 }
+
+/* Indicadores do carrossel */
 
 .frases-dots {
     display: flex;
@@ -662,15 +754,24 @@ header {
     border-color: var(--bege);
 }
 
+
+/* =========================================
+   CONTATO
+========================================= */
+
 .contato {
     padding: 85px 8% 35px;
     background-color: var(--bege);
 }
 
+/* Conteúdo alinhado à margem da Hero */
+
 .contato-conteudo {
     max-width: 850px;
     margin: 0;
 }
+
+/* Identificação da seção */
 
 .contato-label {
     margin-bottom: 18px;
@@ -680,6 +781,8 @@ header {
     letter-spacing: 4px;
     text-align: left;
 }
+
+/* Título */
 
 .contato h1 {
     margin-bottom: 20px;
@@ -693,6 +796,8 @@ header {
     text-align: left;
 }
 
+/* Linha decorativa */
+
 .linha-contato {
     display: block;
     width: 55px;
@@ -701,6 +806,8 @@ header {
 
     background-color: var(--dourado);
 }
+
+/* Texto */
 
 .contato-texto {
     max-width: 600px;
@@ -712,6 +819,8 @@ header {
     text-align: left;
 }
 
+/* Coluna dos botões */
+
 .contato-botoes {
     display: flex;
     flex-direction: column;
@@ -722,6 +831,8 @@ header {
     max-width: 520px;
     margin: 0;
 }
+
+/* Aparência dos três botões */
 
 .botao-formulario,
 .botao-whatsapp,
@@ -750,6 +861,8 @@ header {
                 transform 0.25s ease;
 }
 
+/* Ícones */
+
 .botao-formulario .icone,
 .botao-whatsapp .icone,
 .botao-instagram .icone {
@@ -764,11 +877,15 @@ header {
     font-size: 20px;
 }
 
+/* Texto dos botões */
+
 .botao-formulario > span:nth-child(2),
 .botao-whatsapp > span:nth-child(2),
 .botao-instagram > span:nth-child(2) {
     flex: 1;
 }
+
+/* Setas */
 
 .botao-formulario .seta,
 .botao-whatsapp .seta,
@@ -776,6 +893,8 @@ header {
     font-size: 20px;
     transition: transform 0.25s ease;
 }
+
+/* Hover e clique dourados */
 
 .botao-formulario:hover,
 .botao-whatsapp:hover,
@@ -800,15 +919,23 @@ header {
     transform: translateX(4px);
 }
 
+/* =========================================
+   FAQ — PERGUNTAS FREQUENTES
+========================================= */
+
 .faq {
     padding: 45px 8% 85px;
     background-color: var(--bege);
 }
 
+/* Cabeçalho alinhado à esquerda */
+
 .faq-header {
     max-width: 900px;
     margin: 0 0 40px;
 }
+
+/* Identificação da seção */
 
 .faq-label {
     margin-bottom: 18px;
@@ -818,6 +945,8 @@ header {
     letter-spacing: 4px;
     text-align: left;
 }
+
+/* Título */
 
 .faq-header h1 {
     margin-bottom: 20px;
@@ -831,6 +960,8 @@ header {
     text-align: left;
 }
 
+/* Linha decorativa */
+
 .linha-faq {
     display: block;
     width: 55px;
@@ -840,15 +971,21 @@ header {
     background-color: var(--dourado);
 }
 
+/* Lista de perguntas */
+
 .faq-list {
     width: 100%;
     max-width: 900px;
     margin: 0;
 }
 
+/* Cada pergunta */
+
 .faq-item {
     border-bottom: 1px solid var(--dourado);
 }
+
+/* Pergunta */
 
 .faq-pergunta {
     width: 100%;
@@ -875,6 +1012,8 @@ header {
     transition: none;
 }
 
+/* A pergunta permanece azul em todos os estados */
+
 .faq-pergunta:hover,
 .faq-pergunta:focus,
 .faq-pergunta:active,
@@ -883,10 +1022,14 @@ header {
     background: transparent;
 }
 
+/* Contorno de foco acessível */
+
 .faq-pergunta:focus-visible {
     outline: 1px solid var(--dourado);
     outline-offset: 4px;
 }
+
+/* Seta */
 
 .faq-seta {
     flex-shrink: 0;
@@ -899,9 +1042,13 @@ header {
     transition: transform 0.3s ease;
 }
 
+/* Movimento da seta */
+
 .faq-item.active .faq-seta {
     transform: rotate(180deg);
 }
+
+/* Resposta recolhida */
 
 .faq-resposta {
     max-height: 0;
@@ -910,9 +1057,13 @@ header {
     transition: max-height 0.4s ease;
 }
 
+/* Resposta expandida */
+
 .faq-item.active .faq-resposta {
     max-height: 500px;
 }
+
+/* Texto da resposta */
 
 .faq-resposta p {
     padding: 0 2px 22px;
@@ -921,6 +1072,10 @@ header {
     font-size: 14px;
     line-height: 1.9;
 }
+
+/* =========================================
+   CONHEÇA A TERAPEUTA
+========================================= */
 
 .conheca {
     padding: 45px 8% 85px;
@@ -944,12 +1099,18 @@ header {
     margin: 0;
 }
 
+
+/* Layout da imagem e do texto */
+
 .terapeuta-conteudo {
     display: grid;
     grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
     align-items: stretch;
     gap: 55px;
 }
+
+
+/* Imagem acompanha a altura do texto */
 
 .terapeuta-imagem {
     width: 100%;
@@ -971,6 +1132,9 @@ header {
     object-fit: cover;
     object-position: center top;
 }
+
+
+/* Conteúdo textual */
 
 .terapeuta-texto {
     min-width: 0;
@@ -1053,6 +1217,10 @@ header {
     font-weight: 600;
 }
 
+/* =========================================
+   13. BOTÕES FLUTUANTES
+   ========================================= */
+
 .whatsapp-flutuante,
 #voltar-topo {
     position: fixed;
@@ -1118,6 +1286,11 @@ header {
     transform: translateY(-3px);
 }
 
+
+/* =========================================
+   14. RODAPÉ
+   ========================================= */
+
 .footer {
     padding: 25px 7%;
     background-color: var(--dourado);
@@ -1135,7 +1308,13 @@ header {
     line-height: 1.9;
 }
 
+/* =========================================
+   15. TABLETS
+   ========================================= */
+
 @media (max-width: 900px) {
+
+    /* HERO COM FOTO DE FUNDO */
 
     .hero {
         position: relative;
@@ -1210,6 +1389,9 @@ header {
         margin: 5px auto 0;
     }
 
+
+  /* SEÇÕES */
+
 .como-funciona,
 .planos,
 .depoimentos,
@@ -1219,11 +1401,17 @@ header {
     padding: 55px 6%;
 }
 
+
+/* PLANOS */
+
 .lista-pilares {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: 25px;
 }
-    
+
+
+/* TERAPEUTA */
+
 .terapeuta-conteudo {
     grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
     gap: 30px;
@@ -1239,7 +1427,14 @@ header {
 
 }
 
+/* =========================================
+   16. CELULARES
+   ========================================= */
+
+
 @media (max-width: 760px) {
+
+    /* CONFIGURAÇÕES GERAIS */
 
     html {
         scroll-padding-top: 75px;
@@ -1248,6 +1443,9 @@ header {
     body {
         font-size: 14px;
     }
+
+
+    /* CABEÇALHO */
 
     header {
         min-height: 75px;
@@ -1289,6 +1487,9 @@ header {
     .menu a {
         font-size: 14px;
     }
+
+
+    /* HERO */
 
     .hero {
         position: relative;
@@ -1377,7 +1578,10 @@ header {
 
         font-size: 14px;
     }
-    
+
+
+    /* TÍTULOS DAS SEÇÕES */
+
     .como-funciona h1,
     .planos-header h1,
     .conheca-header h1,
@@ -1388,6 +1592,9 @@ header {
         line-height: 1.2;
         letter-spacing: -0.8px;
     }
+
+
+    /* COMO FUNCIONA */
 
     .como-funciona {
         padding: 45px 7%;
@@ -1430,7 +1637,10 @@ header {
         font-size: 16px;
         line-height: 1.9;
     }
-    
+
+
+    /* PLANOS */
+
     .planos {
         padding: 45px 7%;
     }
@@ -1473,7 +1683,9 @@ header {
         font-size: 16px;
         line-height: 1.9;
     }
-    
+
+    /* Seis pilares */
+
     .lista-pilares {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1507,6 +1719,9 @@ header {
     .duracao-programa {
         margin: 17px 0;
     }
+
+
+    /* DEPOIMENTOS */
 
     .depoimentos {
         padding: 45px 5%;
@@ -1551,6 +1766,9 @@ header {
         font-size: 25px;
     }
 
+
+    /* CONTATO */
+
     .contato {
         padding: 45px 7%;
     }
@@ -1593,6 +1811,9 @@ header {
         font-size: 17px;
     }
 
+
+    /* FAQ */
+
     .faq {
         padding: 45px 7%;
     }
@@ -1628,7 +1849,10 @@ header {
     .faq-item.active .faq-resposta {
         max-height: 550px;
     }
-    
+
+
+    /* CONHEÇA A TERAPEUTA */
+
     .conheca {
         padding: 45px 7%;
     }
@@ -1694,7 +1918,10 @@ header {
         font-size: 9px;
         letter-spacing: 2px;
     }
-    
+
+
+    /* BOTÕES FLUTUANTES */
+
     .whatsapp-flutuante,
     #voltar-topo {
         right: 17px;
@@ -1713,6 +1940,9 @@ header {
         font-size: 18px;
     }
 
+
+    /* RODAPÉ */
+
     .footer {
         padding: 22px 7%;
     }
@@ -1722,6 +1952,10 @@ header {
     }
 
 }
+
+/* =========================================
+   17. CELULARES PEQUENOS
+   ========================================= */
 
 @media (max-width: 380px) {
 
@@ -1755,6 +1989,11 @@ header {
         padding-right: 18px;
     }
 }
+
+
+/* =========================================
+   18. ACESSIBILIDADE
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
