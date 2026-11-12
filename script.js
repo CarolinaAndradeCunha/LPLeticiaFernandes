@@ -1,5 +1,3 @@
-to entendendo...
-
 const menuButton = document.getElementById('menu-button');
 const menu = document.getElementById('menu');
 
@@ -121,20 +119,43 @@ perguntasFaq.forEach(pergunta => {
     });
 });
 
-const botaoTopo = document.getElementById('voltar-topo');
+// Botão voltar ao topo
+function atualizarBotaoTopo() {
+    const botaoTopo = document.getElementById('voltar-topo');
 
-if (botaoTopo) {
-    window.addEventListener('scroll', () => {
-        botaoTopo.classList.toggle('visivel', window.scrollY > 400);
-    });
+    if (!botaoTopo) return;
 
-    botaoTopo.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    botaoTopo.classList.toggle('visivel', window.scrollY > 400);
 }
+
+window.addEventListener('scroll', atualizarBotaoTopo, { passive: true });
+
+document.addEventListener('click', (event) => {
+    const botaoTopo = event.target.closest('#voltar-topo');
+
+    if (!botaoTopo) return;
+
+    event.preventDefault();
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+atualizarBotaoTopo();
+
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+        header.classList.add("rolagem");
+    } else {
+        header.classList.remove("rolagem");
+    }
+});
 
 const anoAtual = document.getElementById('ano-atual');
 
